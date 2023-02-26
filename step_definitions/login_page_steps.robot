@@ -23,6 +23,18 @@ Peny inserts their ${type} username
         ${username}=    Set Variable    ${LOCKED_USER}
     END
 
+    IF    """${type}""" == """problem"""
+        ${username}=    Set Variable    ${PROBLEM_USERNAME}
+    END
+
+    IF    """${type}""" == """glitched"""
+        ${username}=    Set Variable    ${GLLITCHED_USER}
+    END
+
+    IF    """${type}""" == """invalid"""
+        ${username}=    Set Variable    ${INVALID_USER}
+    END
+
     Input Text    ${LOGIN_USERNAME_FIELD}    ${username}
 
 Peny inserts their ${type} password
@@ -38,3 +50,18 @@ Peny inserts their ${type} password
 
 Peny clicks the login button
     Click Button    ${LOGIN_BUTTON}
+
+Peny should see an invalid data error message
+    Wait Until Element Is Visible    ${USERNAME_ERROR_MESSAGE}
+    ${current_url}=    Get Location
+    Should Be Equal As Strings    ${current_url}    ${BASE_URL}
+
+Peny should see a blank username error message
+    Wait Until Element Is Visible    ${BLANK_USERNAME_MESSAGE}
+    ${current_url}=    Get Location
+    Should Be Equal As Strings    ${current_url}    ${BASE_URL}
+
+Peny should see a blank password error message
+    Wait Until Element Is Visible    ${BLANK_PASSWORD_MESSAGE}
+    ${current_url}=    Get Location
+    Should Be Equal As Strings    ${current_url}    ${BASE_URL}

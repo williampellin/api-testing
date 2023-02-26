@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.2 on win32)" generated="20230225 23:15:47.697" rpa="false" schemaversion="3">
+<suite id="s1" name="Authentication Tests" source="c:\Users\User\Desktop\Api-Test\api-testing\tests\authentication_tests.robot">
+<test id="s1-t1" name="Scenario: Attempted login with blank password" line="67">
+<kw name="Run Keywords" library="BuiltIn" type="SETUP">
+<arg>Start Test</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="Start Test" library="runner">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${BASE_URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20230225 23:15:47.893" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<status status="PASS" starttime="20230225 23:15:47.893" endtime="20230225 23:15:49.689"/>
+</kw>
+<kw name="Set Window Size" library="SeleniumLibrary">
+<arg>${SCREEN_WIDTH}</arg>
+<arg>${SCREEN_HEIGHT}</arg>
+<doc>Sets current windows size to given ``width`` and ``height``.</doc>
+<status status="PASS" starttime="20230225 23:15:49.690" endtime="20230225 23:15:49.817"/>
+</kw>
+<kw name="Set Selenium Timeout" library="SeleniumLibrary">
+<arg>30 seconds</arg>
+<doc>Sets the timeout that is used by various keywords.</doc>
+<status status="PASS" starttime="20230225 23:15:49.818" endtime="20230225 23:15:49.819"/>
+</kw>
+<status status="PASS" starttime="20230225 23:15:47.892" endtime="20230225 23:15:49.819"/>
+</kw>
+<status status="PASS" starttime="20230225 23:15:47.892" endtime="20230225 23:15:49.819"/>
+</kw>
+<kw name="Given Peny is on the login page" library="login_page_steps">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${LOGIN_PAGE_IDENTIFIER}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230225 23:15:49.820" endtime="20230225 23:15:49.842"/>
+</kw>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<msg timestamp="20230225 23:15:49.846" level="INFO">${current_url} = https://www.saucedemo.com/</msg>
+<status status="PASS" starttime="20230225 23:15:49.842" endtime="20230225 23:15:49.846"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${BASE_URL}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230225 23:15:49.847" endtime="20230225 23:15:49.847"/>
+</kw>
+<status status="PASS" starttime="20230225 23:15:49.820" endtime="20230225 23:15:49.847"/>
+</kw>
+<kw name="When Peny inserts their default username" library="login_page_steps" sourcename="Peny inserts their ${type} username">
+<if>
+<branch type="IF" condition="&quot;&quot;&quot;${type}&quot;&quot;&quot; == &quot;&quot;&quot;default&quot;&quot;&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${username}</var>
+<arg>${DEFAULT_USERNAME}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230225 23:15:49.849" level="INFO">${username} = standard_user</msg>
+<status status="PASS" starttime="20230225 23:15:49.848" endtime="20230225 23:15:49.849"/>
+</kw>
+<status status="PASS" starttime="20230225 23:15:49.848" endtime="20230225 23:15:49.849"/>
+</branch>
+<status status="PASS" starttime="20230225 23:15:49.848" endtime="20230225 23:15:49.849"/>
+</if>
+<if>
+<branch type="IF" condition="&quot;&quot;&quot;${type}&quot;&quot;&quot; == &quot;&quot;&quot;locked out&quot;&quot;&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${username}</var>
+<arg>${LOCKED_USER}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230225 23:15:49.850" endtime="20230225 23:15:49.850"/>
+</kw>
+<status status="NOT RUN" starttime="20230225 23:15:49.849" endtime="20230225 23:15:49.850"/>
+</branch>
+<status status="PASS" starttime="20230225 23:15:49.849" endtime="20230225 23:15:49.850"/>
+</if>
+<if>
+<branch type="IF" condition="&quot;&quot;&quot;${type}&quot;&quot;&quot; == &quot;&quot;&quot;problem&quot;&quot;&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${username}</var>
+<arg>${PROBLEM_USERNAME}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230225 23:15:49.850" endtime="20230225 23:15:49.850"/>
+</kw>
+<status status="NOT RUN" starttime="20230225 23:15:49.850" endtime="20230225 23:15:49.850"/>
+</branch>
+<status status="PASS" starttime="20230225 23:15:49.850" endtime="20230225 23:15:49.850"/>
+</if>
+<if>
+<branch type="IF" condition="&quot;&quot;&quot;${type}&quot;&quot;&quot; == &quot;&quot;&quot;glitched&quot;&quot;&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${username}</var>
+<arg>${GLLITCHED_USER}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230225 23:15:49.851" endtime="20230225 23:15:49.851"/>
+</kw>
+<status status="NOT RUN" starttime="20230225 23:15:49.850" endtime="20230225 23:15:49.851"/>
+</branch>
+<status status="PASS" starttime="20230225 23:15:49.850" endtime="20230225 23:15:49.851"/>
+</if>
+<if>
+<branch type="IF" condition="&quot;&quot;&quot;${type}&quot;&quot;&quot; == &quot;&quot;&quot;invalid&quot;&quot;&quot;">
+<kw name="Set Variable" library="BuiltIn">
+<var>${username}</var>
+<arg>${INVALID_USER}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230225 23:15:49.851" endtime="20230225 23:15:49.851"/>
+</kw>
+<status status="NOT RUN" starttime="20230225 23:15:49.851" endtime="20230225 23:15:49.851"/>
+</branch>
+<status status="PASS" starttime="20230225 23:15:49.851" endtime="20230225 23:15:49.851"/>
+</if>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${LOGIN_USERNAME_FIELD}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20230225 23:15:49.852" level="INFO">Typing text 'standard_user' into text field 'css=input[data-test="username"]'.</msg>
+<status status="PASS" starttime="20230225 23:15:49.852" endtime="20230225 23:15:49.937"/>
+</kw>
+<status status="PASS" starttime="20230225 23:15:49.848" endtime="20230225 23:15:49.938"/>
+</kw>
+<kw name="And Peny clicks the login button" library="login_page_steps">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${LOGIN_BUTTON}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20230225 23:15:49.939" level="INFO">Clicking button 'css=input[data-test="login-button"]'.</msg>
+<status status="PASS" starttime="20230225 23:15:49.939" endtime="20230225 23:15:49.988"/>
+</kw>
+<status status="PASS" starttime="20230225 23:15:49.938" endtime="20230225 23:15:49.989"/>
+</kw>
+<kw name="Then Peny should see a blank password error message" library="login_page_steps">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${BLANK_PASSWORD_MESSAGE}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230225 23:15:49.990" endtime="20230225 23:15:50.008"/>
+</kw>
+<kw name="Get Location" library="SeleniumLibrary">
+<var>${current_url}</var>
+<doc>Returns the current browser window URL.</doc>
+<msg timestamp="20230225 23:15:50.012" level="INFO">${current_url} = https://www.saucedemo.com/</msg>
+<status status="PASS" starttime="20230225 23:15:50.009" endtime="20230225 23:15:50.012"/>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<arg>${current_url}</arg>
+<arg>${BASE_URL}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" starttime="20230225 23:15:50.013" endtime="20230225 23:15:50.013"/>
+</kw>
+<status status="PASS" starttime="20230225 23:15:49.989" endtime="20230225 23:15:50.013"/>
+</kw>
+<kw name="Run Keywords" library="BuiltIn" type="TEARDOWN">
+<arg>End Test</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<kw name="End Test" library="runner">
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230225 23:15:52.020" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230225 23:15:50.015" endtime="20230225 23:15:52.020"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20230225 23:15:52.163" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230225 23:15:52.020" endtime="20230225 23:15:52.164"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230225 23:15:52.164" endtime="20230225 23:15:54.244"/>
+</kw>
+<status status="PASS" starttime="20230225 23:15:50.014" endtime="20230225 23:15:54.244"/>
+</kw>
+<status status="PASS" starttime="20230225 23:15:50.014" endtime="20230225 23:15:54.244"/>
+</kw>
+<doc>Outcome when leaving the password field blank.
+
+Relevant Business Rules:
+- User must be shown a message describing the error.</doc>
+<tag>REGRESSION</tag>
+<tag>SMOKE</tag>
+<status status="PASS" starttime="20230225 23:15:47.891" endtime="20230225 23:15:54.245"/>
+</test>
+<doc>AUTHENTICATION TESTS
+
+Tests from Login Feature are written in this file using Gherkin Syntax.
+Specs: &lt;link-to-documentation-or-prototype&gt;</doc>
+<status status="PASS" starttime="20230225 23:15:47.701" endtime="20230225 23:15:54.246"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">REGRESSION</stat>
+<stat pass="1" fail="0" skip="0">SMOKE</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Authentication Tests">Authentication Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
