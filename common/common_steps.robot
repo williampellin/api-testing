@@ -35,3 +35,6 @@ Peny logins with ${type} user
     And Peny inserts their default password
     And Peny clicks the login button
     Then Peny should see the inventory page
+
+Peny refreshes the page
+    Press Keys    None     F5    

@@ -12,3 +12,4 @@ ${USERNAME_ERROR_MESSAGE}      xpath=//h3[contains(text(), 'Epic sadface: Userna
 ${BLANK_USERNAME_MESSAGE}      xpath=//h3[contains(text(), 'Epic sadface: Username is required')]
 ${BLANK_PASSWORD_MESSAGE}      xpath=//h3[contains(text(), 'Epic sadface: Password is required')]
 ${LOCKEDOUT_USER_MESSAGE}      xpath=//h3[contains(text(), 'Epic sadface: Sorry, this user has been locked out.')]
+${INVENTORY_PAGE_IDENTIFIER}   xpath=//span[@class='title' and contains(text(), 'roducts')]

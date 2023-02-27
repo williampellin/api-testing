@@ -88,3 +88,44 @@ Scenario: Attempted login with locked out user
     And Peny inserts their default password
     And Peny clicks the login button
     Then Peny should see a locked out user error message
+
+Scenario: Succesfull login with glitched user
+    [Tags]    SMOKE    REGRESSION
+    [Documentation]    Successfull outcome when glitched credentials are used.
+    ...
+    ...                Relevant Business Rules:
+    ...                - User is logged in, but the pages don't refresh automatically.
+
+    Given Peny is on the login page
+    When Peny inserts their glitched username
+    And Peny inserts their default password
+    And Peny clicks the login button
+    And Peny sees a glitched inventory page
+    And Peny refreshes the page
+    Then Peny should see the inventory page
+
+Scenario: Attempted login with glitched user
+    [Tags]    SMOKE    REGRESSION
+    [Documentation]    Successfull outcome when glitched credentials are used.
+    ...
+    ...                Relevant Business Rules:
+    ...                - User is logged in, but the page shown isn't the same as the url.
+
+    Given Peny is on the login page
+    When Peny inserts their glitched username
+    And Peny inserts their default password
+    And Peny clicks the login button
+    Then Peny sees a glitched inventory page
+
+Scenario: Succesfull login with problem user
+    [Tags]    SMOKE    REGRESSION
+    [Documentation]    Successfull outcome when bugged credentials are used.
+    ...
+    ...                Relevant Business Rules:
+    ...                - User is logged in, but the product's images are incorrect.
+
+    Given Peny is on the login page
+    When Peny inserts their problem username
+    And Peny inserts their default password
+    And Peny clicks the login button
+    Then Peny should see a bugged inventory page

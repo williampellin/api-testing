@@ -3,6 +3,7 @@ ${BROWSER}             chrome
 ${SCREEN_WIDTH}        1920
 ${SCREEN_HEIGHT}       1080
 ${BASE_URL}            https://www.saucedemo.com/
+${INVENTORY_URL}       https://www.saucedemo.com/inventory.html
 ${DEFAULT_USERNAME}    standard_user
 ${DEFAULT_PASSWORD}    secret_sauce
 ${LOCKED_USER}         locked_out_user

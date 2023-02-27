@@ -11,3 +11,11 @@ Peny should see the inventory page
     Wait Until Element Is Visible    ${INVENTORY_PAGE_IDENTIFIER}
     ${current_url}=    Get Location
     Should Contain    ${current_url}    /inventory.html   
+
+Peny should see a bugged inventory page       #HAVE TO DO
+     ${img_src}=    Get Element Attribute    xpath://img[@alt="Sauce Labs Backpack"]@src
+
+Peny sees a glitched inventory page
+    Wait Until Element Is Visible    ${INVENTORY_PAGE_IDENTIFIER}
+    ${current_url}=    Get Location
+    Should Contain    ${current_url}    /inventory.html
