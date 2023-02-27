@@ -75,3 +75,16 @@ Scenario: Attempted login with blank password
     When Peny inserts their default username
     And Peny clicks the login button
     Then Peny should see a blank password error message
+
+Scenario: Attempted login with locked out user
+    [Tags]    SMOKE    REGRESSION
+    [Documentation]    Successfull outcome when lockedout credentials are used.
+    ...
+    ...                Relevant Business Rules:
+    ...                - User must be shown a message describing the error.
+
+    Given Peny is on the login page
+    When Peny inserts their locked out username
+    And Peny inserts their default password
+    And Peny clicks the login button
+    Then Peny should see a locked out user error message

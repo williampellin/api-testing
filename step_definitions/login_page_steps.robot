@@ -65,3 +65,9 @@ Peny should see a blank password error message
     Wait Until Element Is Visible    ${BLANK_PASSWORD_MESSAGE}
     ${current_url}=    Get Location
     Should Be Equal As Strings    ${current_url}    ${BASE_URL}
+
+Peny should see a locked out user error message
+    Wait Until Element Is Visible    ${LOCKEDOUT_USER_MESSAGE}
+    ${current_url}=    Get Location
+    Should Be Equal As Strings    ${current_url}    ${BASE_URL}
+
