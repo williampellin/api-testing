@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation        AUTHENTICATION TESTS
 ...
-...                  Tests from Login Feature are written in this file using Gherkin Syntax.
+...                  Tests for Login Feature are written in this file using Gherkin Syntax.
 ...                  Specs: <link-to-documentation-or-prototype>
 
 Resource              ../config/runner.robot
